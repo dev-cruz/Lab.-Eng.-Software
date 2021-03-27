@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block content %}
+<form action="{{ url_for('create_recipe') }}" method="post">
+    <fieldset>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="nome" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="ingredients">Ingredients</label>
+            <div>
+                {% for ingredient in ingredients  %}
+                <input type="checkbox" value="{{ ingredient.name }}" name="ingredient">
+                {{ ingredient.name }}
+                </input>
+                {% endfor %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-salvar">Register new recipe</button>
+    </fieldset>
+</form>
+{% endblock %}
